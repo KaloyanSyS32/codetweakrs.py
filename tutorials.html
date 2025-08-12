@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python Tutorials</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background: #1e1e1e;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 20px auto;
+      max-width: 900px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #64b5f6;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: #64b5f6;
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: #90caf9;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px 40px;
+      max-width: 900px;
+      margin: 40px auto 30px;
+      border-radius: 6px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      white-space: nowrap;
+      border-right: 3px solid #64b5f6;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      animation: typing-caret 0.5s steps(1) infinite;
+    }
+    @keyframes typing-caret {
+      0%, 50% { border-color: #64b5f6; }
+      50.01%, 100% { border-color: transparent; }
+    }
+    main {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease;
+      padding: 0 20px 40px;
+      max-width: 900px;
+      margin: auto;
+      background-color: #1e1e1e;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(100, 181, 246, 0.2);
+      transform: translateY(0);
+      transition-property: opacity, box-shadow, transform;
+      transition-duration: 0.6s, 0.3s, 0.3s;
+      transition-timing-function: ease;
+}
+
+main.show {
+   opacity: 1;
+   visibility: visible;
+}
+
+    }
+    main:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 30px rgba(100, 181, 246, 0.4);
+    }
+    h2 {
+      color: #64b5f6;
+      margin: 50px 0 20px;
+      line-height: 1.4;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .tutorial-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 600px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #64b5f6 #1e1e1e;
+    }
+    .tutorial-list::-webkit-scrollbar {
+      width: 8px;
+    }
+    .tutorial-list::-webkit-scrollbar-track {
+      background: #1e1e1e;
+      border-radius: 6px;
+    }
+    .tutorial-list::-webkit-scrollbar-thumb {
+      background-color: #64b5f6;
+      border-radius: 6px;
+      border: 2px solid #1e1e1e;
+    }
+    .tutorial-list li {
+      background-color: #121212;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .tutorial-list li:hover {
+      background-color: #0a0a0a;
+    }
+    .tutorial-list a {
+      text-decoration: none;
+      color: #64b5f6;
+      font-size: 18px;
+      font-weight: 600;
+      display: block;
+      width: 100%;
+    }
+    .tutorial-list a:hover {
+      text-decoration: underline;
+      color: #90caf9;
+    }
+    footer {
+      text-align: center;
+      margin: 40px auto 20px;
+      font-size: 14px;
+      color: #777;
+      max-width: 900px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tutorials.html">Tutorials</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <header id="page-title"></header>
+
+  <main id="main-content">
+    <h2>All Tutorials</h2>
+    <ul class="tutorial-list" id="tutorial-list"></ul>
+  </main>
+
+  <footer>
+    &copy; 2025 CodeTweakrs. All rights reserved.
+  </footer>
+
+  <script>
+    const titleText = "Python Tutorials";
+    const header = document.getElementById("page-title");
+    let index = 0;
+    header.textContent = "";
+
+    function typeTitle() {
+      if (index < titleText.length) {
+        header.textContent += titleText.charAt(index);
+        index++;
+        setTimeout(typeTitle, 100);
+      } else {
+        header.style.borderRight = "none";
+        header.style.animation = "none";
+        document.getElementById("main-content").classList.add("show");
+      }
+    }
+
+    const titles = [
+      "Python Hello World",
+      "Python Variables",
+      "Python Data Types",
+      "Python Strings",
+      "Python Numbers",
+      "Python Lists",
+      "Python Tuples",
+      "Python Sets",
+      "Python Dictionaries",
+      "Python If Statements",
+      "Python Loops",
+      "Python Functions",
+      "Python Lambda Functions",
+      "Python Classes and Objects",
+      "Python Inheritance",
+      "Python Modules",
+      "Python File Handling",
+      "Python Exceptions",
+      "Python Date and Time",
+      "Python Math Module",
+      "Python JSON",
+      "Python RegEx",
+      "Python Iterators",
+      "Python Generators",
+      "Python Decorators",
+      "Python Virtual Environments",
+      "Python PIP",
+      "Python Web Scraping with BeautifulSoup",
+      "Python API Requests",
+      "Python SQLite Basics",
+      "Python Pandas Basics",
+      "Python NumPy Basics",
+      "Python Matplotlib Basics",
+      "Python Tkinter GUI",
+      "Python OOP Advanced",
+      "Python Unit Testing",
+      "Python Logging",
+      "Python Asyncio Basics",
+      "Python Multithreading",
+      "Python Multiprocessing",
+      "Python CSV Handling",
+      "Python Email Sending",
+      "Python PDF Handling",
+      "Python Excel Automation",
+      "Python Image Processing with Pillow",
+      "Python OpenCV Basics",
+      "Python Speech Recognition",
+      "Python Machine Learning Intro",
+      "Python Data Analysis",
+      "Python Automation Scripts"
+    ];
+
+    const list = document.getElementById("tutorial-list");
+    for (let i = 0; i < titles.length; i++) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `tutorials/tutorial${i + 1}.html`;
+      a.textContent = `Tutorial ${i + 1}: ${titles[i]}`;
+      a.className = "tutorial-link";
+      li.appendChild(a);
+      list.appendChild(li);
+    }
+
+    window.onload = typeTitle;
+  </script>
+</body>
+</html>

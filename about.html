@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - CodeTweakrs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: #121212;
+      color: #e0e0e0;
+      animation: fadeIn 0.6s ease-in-out;
+      scroll-behavior: smooth;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #64b5f6;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: #64b5f6;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #90caf9;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 6px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    main.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+    }
+
+    main:hover {
+      transform: scale(1.01);
+      box-shadow: 0px 4px 15px rgba(100, 181, 246, 0.2);
+    }
+
+    h2 {
+      color: #64b5f6;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    #page-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      white-space: nowrap;
+      border-right: 3px solid #64b5f6;
+      overflow: hidden;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="page-title"></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tutorials.html">Tutorials</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <h2>About CodeTweakrs Python</h2>
+    <p>CodeTweakrs was created to help beginners and experienced coders alike by providing clear, practical tutorials without the fluff.</p>
+    <p>Our mission is to empower everyone to learn programming through hands-on examples and straightforward explanations.</p>
+    <p>We cover multiple languages and constantly update with new content to keep you ahead in the fast-moving world of tech.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 CodeTweakrs. All rights reserved.
+  </footer>
+
+  <script>
+    // Typing effect for page title
+    const titleText = "About CodeTweakrs Python";
+    const titleElement = document.getElementById("page-title");
+    let index = 0;
+
+    function typeTitle() {
+      if (index < titleText.length) {
+        titleElement.textContent += titleText.charAt(index);
+        index++;
+        setTimeout(typeTitle, 150);
+      } else {
+        titleElement.style.borderRight = "none";
+        showMain();
+      }
+    }
+
+    // Show main content with fade-in after typing effect finishes
+    function showMain() {
+      const main = document.getElementById("main-content");
+      main.classList.add("show");
+    }
+
+    window.onload = typeTitle;
+  </script>
+</body>
+</html>
